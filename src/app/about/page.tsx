@@ -285,6 +285,9 @@ export default function About() {
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
+                    <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      {institution.duration}
+                    </Text>
                   </Column>
                 ))}
               </Column>
