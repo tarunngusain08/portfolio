@@ -1,15 +1,15 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Tarunn",
+  lastName: "Gusain",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "Staff Software Engineer",
   avatar: "/images/avatar.jpg",
   location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -27,24 +27,34 @@ const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
   {
+    name: "Leetcode",
+    icon: "leetcode",
+    link: "https://leetcode.com/u/tarunngusain08/",
+  },
+  {
+    name: "Scaler",
+    icon: "scaler",
+    link: "https://www.scaler.com/academy/profile/71f6d4b77d73/",
+  },
+  {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/tarunngusain08",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/tarunngusain08/",
   },
   {
     name: "X",
     icon: "x",
-    link: "",
+    link: "https://x.com/tarunngusain08",
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:prudent.tarun0808@gmail.com",
   },
 ];
 
@@ -52,11 +62,15 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Staff Software Engineer</>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Tarunn, a software engineer at <InlineCode>Gruve.ai</InlineCode>, where I craft intuitive
+      <br /> user experiences and next gen software. After hours, I build my own projects. 
+      Tarunn Gusain, a highly skilled Software Engineer, with 4+ years of experience ex- cels in 
+      Golang, Python, Java, and C. Tarunn is an active contributor on Github having 50+ repositories 
+      and solved 1300+ overall coding problems on platforms like LeetCode, Scaler & GeeksforGeeks.
+
     </>
   ),
 };
@@ -81,9 +95,9 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Tarunn is a India-based software engineer with a passion for transforming complex challenges
+        into simple, elegant software solutions. His work spans backend engineering, frontend development, 
+        and high level and low leveldesign.
       </>
     ),
   },
@@ -92,44 +106,129 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Gruve.ai | Paypal",
+        timeframe: "Aug 2024 - Present",
+        role: "Staff Software Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Setup a whole k8s cluster on baremetal nodes to support GPU intensive jobs, enhancing concurrency control by 50% by Nvidia MIG partitioning.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Created 10+ MVP APIs in golang related to node registration, cluster management.
+          </>,
+          <> Beautifully implemented the UI in react.js for nodes, profiles, jobs and clusters. </>,
+          <>
+            Designed the low-level diagrams flow, optimized the DB schema for critical components like 
+            nodes and clusters.
           </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/projects/project-01/paypal.jpg",
+            alt: "paypal",
+            width: 18,
+            height: 10,
+          },
+          {
+            src: "/images/projects/project-01/gruve.jpg",
+            alt: "gruve",
+            width: 18,
+            height: 10,
+          },
+        ],
+      },
+      {
+        company: "Oracle Cloud Infrastructure | Bytedance",
+        timeframe: "Jun 2023 - Aug 2024",
+        role: "Member of Technical Staff",
+        achievements: [
+          <> Reduced the cost by 50% forthe compute instances, saving more than
+          $100K/month by optimizing the number of nodes required to serve the traffic
+          alongwith maintaining the AD resiliency to 99.99998%.</>,
+          <> Optimized the microservice configuration injection resulting 20% reduction
+in deployment frequency.</>,
+          <> Optimized the logs by 40% by rigorously testing on 500,000+ logs.</>,
+          <> Added 30+ Metrics and Alarms in grafana using terraform, enhancing maintainability and monitoring. </>,  
+          <> Took an initiative of CIDR Validation on the buckets IPs, increasing secure data transmission by 100%. </>,
+          <> Resolved 13+ Severity-1,100+ Severity-2 issues and multiple Severity-3,4 issues during on-call rotation to ensure the maintainability. </>,
+        ],
+        images: [
+          {
+            src: "/images/projects/project-01/oracle.jpg",
+            alt: "oracle",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/projects/project-01/bytedance.jpg",
+            alt: "bytedance",
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Dunzo",
+        timeframe: "Apr 2022 - May 2023",
+        role: "Software Engineer",
+        achievements: [
+          <> Restructured an overloaded legacy monolith service (Python) into 2 microservices, developed a Golang-based microservice, and migrated 60+ APIs from legacy code.</>,
+          <>  Streamlined the extraction and ingestion processes, enhancing inventory management by optimizing the replishment requirement of products, reducing capital losses by 20%.</>,
+          <>  Introduced Redis-Locking mechanism to fix write-write conflicts, reducing the probability of this vulnerability by 99%, ensuring data consistency.</>,
+          <>  Implemented fingerprint authentication for inventory management operations, enabling a 30% reduction in login time for warehouse staff and managers.</>,
+          <>  Deployed a GCP Cloud Function for CSV validation, optimizing data validation efficiency. Load tested on 100K rows sheet validated within 1 minute.</>,
+          <>  Designed and coded 25+ APIs related to inventory management, product catalog, and order service.</>,
+          <>  Reduced the API latency by 40% by optimizing the database queries in catalogue service.</>,
+          <>  Fixed 5 P0 bugs and addressed 40+ P1 issues during operational duty, ensuring the reliability of the application.</>,
+        ],
+        images: [
+          {
+            src: "/images/projects/project-01/dunzo.jpg",
+            alt: "dunzo",
+            width: 20,
+            height: 12,
+          },
+          {
+            src: "/images/projects/project-01/dunzo logo.jpg",
+            alt: "dunzo logo",
+            width: 16,
+            height: 12,
+          },
+        ],
+      },
+      {
+        company: "Tata Consultancy Services | BMW",
+        timeframe: "Jan 2021 - Apr 2022",
+        role: "System Engineer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Architected and Implemented the logic for batching/uploading/downloading the diagnosed data to AWS S3 buckets asynchronously enabling 20 workers to operate concurrently.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Fixed 15+ bugs and provided multiple hot fixes for existing code.
+          </>,
+          <>
+            Automated the instances health checks, which increased team efficiency and saved 20+ hours per week.
+          </>,
+          <>
+            Led a cross-functional team to launch a new product line, contributing to a 15% increase in overall company revenue.
           </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/images/projects/project-01/tcs.jpg",
+            alt: "tcs",
+            width: 17,
+            height: 10,
+          },
+          {
+            src: "/images/projects/project-01/bmw.jpg",
+            alt: "bmw",
+            width: 19,
+            height: 10,
+          },
+        ],
       },
     ],
   },
@@ -138,12 +237,9 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
+        name: "Inderprastha Engineering College",
         description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        duration: <>Aug 2016 - Sept 2020</>,
       },
     ],
   },
