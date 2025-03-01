@@ -66,11 +66,9 @@ const home = {
   subline: (
     <>
       I'm Tarunn, a software engineer at <InlineCode>Gruve.ai</InlineCode>, where I craft intuitive
-      <br /> user experiences and next gen software. After hours, I build my own projects. 
-      Tarunn Gusain, a highly skilled Software Engineer, with 4+ years of experience ex- cels in 
-      Golang, Python, Java, and C. Tarunn is an active contributor on Github having 50+ repositories 
+      <br /> user experiences and next gen software. With 4+ years of experience excels in 
+      Golang, Python, Java, and C. An active contributor on Github having 50+ repositories 
       and solved 1300+ overall coding problems on platforms like LeetCode, Scaler & GeeksforGeeks.
-
     </>
   ),
 };
@@ -111,16 +109,51 @@ const about = {
         role: "Staff Software Engineer",
         achievements: [
           <>
-            Setup a whole k8s cluster on baremetal nodes to support GPU intensive jobs, enhancing concurrency control by 50% by Nvidia MIG partitioning.
+            <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
+            <ul>
+              <li><strong>Deployed and fine-tuned Ollama's 70B model</strong> on dedicated GPU nodes.</li>
+              <li>Trained on <strong>10K+ internal documents</strong> from Confluence, JIRA, and Wikis.</li>
+              <li>Transformed into an <strong>AI-powered knowledge assistant</strong> for internal use.</li>
+              <li><strong>Optimized retrieval-augmented generation (RAG) workflows</strong> for precise and context-aware responses tailored to internal business needs.</li>
+            </ul>
           </>,
+        
           <>
-            Created 10+ MVP APIs in golang related to node registration, cluster management.
+            <strong>🚀 Building an Internal GPU Cluster Manager for AI/ML Workloads</strong>
+            <ul>
+              <li><strong>Architected and deployed</strong> a GPU cluster management service from scratch.</li>
+              <li>Enabled <strong>seamless scheduling of AI/ML financial jobs</strong> for data scientists and operators.</li>
+              <li><strong>Orchestrated Kubernetes deployment</strong> on bare metal nodes.</li>
+              <li>Optimized concurrency by <strong>50%</strong> via <strong>NVIDIA MIG partitioning</strong>, ensuring efficient resource utilization across <strong>40 GPU nodes</strong> and <strong>60 CPU nodes</strong>.</li>
+              <li><strong>Designed and implemented</strong> 15+ high-performance <strong>Golang APIs</strong> for:
+                <ul>
+                  <li>Node registration</li>
+                  <li>Job scheduling</li>
+                  <li>Profile management</li>
+                  <li>Cluster operations</li>
+                </ul>
+              </li>
+              <li><strong>Developed a scalable and intuitive UI</strong> in React.js with:
+                <ul>
+                  <li>4+ dynamic pages</li>
+                  <li>20+ components</li>
+                  <li>Real-time insights into nodes, profiles, jobs, and clusters</li>
+                </ul>
+              </li>
+              <li>Ensured <strong>99.99% uptime</strong> across distributed clusters by improving data consistency, replication, and failover mechanisms.</li>
+            </ul>
           </>,
-          <> Beautifully implemented the UI in react.js for nodes, profiles, jobs and clusters. </>,
+        
           <>
-            Designed the low-level diagrams flow, optimized the DB schema for critical components like 
-            nodes and clusters.
-          </>,
+            <strong>🎤 Leadership, Knowledge Sharing & Community Engagement</strong>
+            <ul>
+              <li><strong>Led 5+ knowledge transfer (KT) sessions</strong> on DSA, System Design, and best engineering practices.</li>
+              <li><strong>Conducted 2+ tech webinars</strong> on emerging technologies and system architecture best practices.</li>
+              <li><strong>Interviewed 15+ candidates across 4+ roles</strong>, dedicating <strong>25+ hours</strong> to hiring and mentoring talent.</li>
+              <li><strong>Hosted and organized a company-wide lunch session</strong> with the Director of Engineering and the entire engineering team, fostering collaboration and alignment.</li>
+              <li><strong>Participated in 2 internal hackathons</strong>, winning <strong>1st place</strong> in one and securing <strong>2nd runner-up</strong> in another.</li>
+            </ul>
+          </>
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
@@ -143,15 +176,94 @@ const about = {
         timeframe: "Jun 2023 - Aug 2024",
         role: "Member of Technical Staff",
         achievements: [
-          <> Reduced the cost by 50% forthe compute instances, saving more than
-          $100K/month by optimizing the number of nodes required to serve the traffic
-          alongwith maintaining the AD resiliency to 99.99998%.</>,
-          <> Optimized the microservice configuration injection resulting 20% reduction
-in deployment frequency.</>,
-          <> Optimized the logs by 40% by rigorously testing on 500,000+ logs.</>,
-          <> Added 30+ Metrics and Alarms in grafana using terraform, enhancing maintainability and monitoring. </>,  
-          <> Took an initiative of CIDR Validation on the buckets IPs, increasing secure data transmission by 100%. </>,
-          <> Resolved 13+ Severity-1,100+ Severity-2 issues and multiple Severity-3,4 issues during on-call rotation to ensure the maintainability. </>,
+          <>
+            <strong>💰 Compute Cost Optimization & Scalability</strong>
+            <ul>
+              <li>Reduced compute costs by <strong>30%</strong>, saving <strong>$100K+/month</strong> while maintaining <strong>99.99998% AD resiliency</strong>.</li>
+              <li>Strategically <strong>scaled down compute nodes</strong> across <strong>2 regions</strong> without downtime or service degradation.</li>
+              <li>Conducted a <strong>thorough 3-month utilization analysis</strong>, examining:
+                <ul>
+                  <li>CPU, memory, and network usage trends.</li>
+                  <li>Per-pod resource consumption patterns.</li>
+                </ul>
+              </li>
+              <li><strong>Optimized auto-scaling strategy</strong> by:
+                <ul>
+                  <li>Upscaling during high-traffic events (Black Friday, year-end sales).</li>
+                  <li>Gradual downscaling post-event to optimize resource allocation.</li>
+                </ul>
+              </li>
+              <li><strong>Memory Optimization & Leak Fixes</strong>:
+                <ul>
+                  <li>Reduced per-pod memory allocations, eliminating inefficiencies.</li>
+                  <li>Identified and fixed memory leaks in Golang services handling <strong>100K requests/sec</strong>.</li>
+                </ul>
+              </li>
+              <li><strong>Common memory leaks identified in Golang:</strong>
+                <ul>
+                  <li><strong>Goroutine leaks</strong>: Improperly terminated goroutines accumulating over time.</li>
+                  <li><strong>Unbounded slice growth</strong>: Appending data without proper capacity checks.</li>
+                  <li><strong>Improperly managed <code>sync.Pool</code></strong>: Leading to excessive memory retention.</li>
+                </ul>
+              </li>
+              <li>Achieved <strong>optimized compute efficiency</strong> while ensuring high availability and performance.</li>
+            </ul>
+          </>,
+        
+          <>
+            <strong>📝 Log Summarization & Storage Optimization</strong>
+            <ul>
+              <li>Contributed to a <strong>Log Summarizer</strong>, significantly reducing log storage by <strong>40%</strong> through optimized compression and deduplication techniques.</li>
+              <li>Designed an <strong>efficient log similarity detection mechanism</strong> leveraging:
+                <ul>
+                  <li><strong>Cosine similarity</strong> to identify redundant log patterns.</li>
+                  <li><strong>Disjoint-set data structures</strong> for clustering similar logs efficiently.</li>
+                  <li><strong>Rigorous testing on 500,000+ logs</strong> to fine-tune accuracy and storage efficiency.</li>
+                </ul>
+              </li>
+              <li>Improved log analysis speed while ensuring <strong>minimal data loss</strong>, enhancing system observability.</li>
+            </ul>
+          </>,
+        
+          <>
+            <strong>🛠️ Golang SDK Development & Configuration Management</strong>
+            <ul>
+              <li>Contributed to a <strong>Golang SDK</strong> that exposes multiple APIs for gateway teams, ensuring seamless integration.</li>
+              <li><strong>Designed a dynamic configuration loading mechanism:</strong>
+                <ul>
+                  <li>The SDK fetches <strong>gateway-specific configs</strong> from a <strong>centralized DB</strong>.</li>
+                  <li>Local cache validation occurs <strong>every 1 min</strong> with a <strong>random jitter of 30s</strong>.</li>
+                  <li>Introduced a <strong>fallback mechanism</strong> using static configurations stored in a <strong>Kubernetes ConfigMap</strong>.</li>
+                  <li>Configs are injected via <strong>Helm</strong> at deployment, with each pod referring to a <strong>global namespace config</strong>.</li>
+                  <li><strong>Kubernetes ConfigMap</strong> is mounted at <strong>/etc/config</strong> for every pod, ensuring <strong>real-time updates</strong> without restarting the pod.</li>
+                  <li>ConfigMap is updated dynamically, using <strong>memory-mapped pointers</strong> to reference global configurations without requiring pod restarts.</li>
+                  <li>Optimized microservice configuration injection, reducing deployment frequency by <strong>20%</strong>.</li>
+                </ul>
+              </li>
+            </ul>
+          </>,
+        
+          <>
+            <strong>📊 Monitoring & Security Enhancements</strong>
+            <ul>
+              <li>Integrated <strong>30+ metrics and alarms</strong> in <strong>Grafana using Terraform</strong>, improving observability.</li>
+              <li>Led <strong>CIDR validation for bucket IPs</strong>, strengthening secure data transmission by <strong>100%</strong>.</li>
+            </ul>
+          </>,
+        
+          <>
+            <strong>🔥 On-Call Reliability & Incident Resolution</strong>
+            <ul>
+              <li>Resolved <strong>13+ Severity-1</strong>, <strong>100+ Severity-2</strong>, and multiple <strong>Severity-3/4</strong> issues during on-call rotations, ensuring service stability.</li>
+            </ul>
+          </>,
+        
+          <>
+            <strong>🧪 Testing & Log Optimization</strong>
+            <ul>
+              <li>Engineered <strong>100+ robust test cases</strong>, achieving <strong>90% code coverage</strong>.</li>
+            </ul>
+          </>
         ],
         images: [
           {
@@ -244,7 +356,7 @@ in deployment frequency.</>,
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {
