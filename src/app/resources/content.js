@@ -111,7 +111,7 @@ const about = {
           <>
             <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
             <ul>
-              <li><strong>Deployed and fine-tuned Ollama's 70B model</strong> on dedicated GPU nodes.</li>
+              <li><strong>Deployed and fine-tuned Llama 3.1:70B model</strong> on dedicated GPU nodes.</li>
               <li>Trained on <strong>10K+ internal documents</strong> from Confluence, JIRA, and Wikis.</li>
               <li>Transformed into an <strong>AI-powered knowledge assistant</strong> for internal use.</li>
               <li><strong>Optimized retrieval-augmented generation (RAG) workflows</strong> for precise and context-aware responses tailored to internal business needs.</li>
