@@ -40,3 +40,4 @@ commit_files() {
 
 # Run the commit function with the provided message
 commit_files "$@"s
+git push
