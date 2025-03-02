@@ -8,12 +8,12 @@ const person = {
   },
   role: "Staff Software Engineer",
   avatar: "/images/avatar.jpg",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
@@ -418,74 +418,130 @@ const gallery = {
   // Images from https://pexels.com
   images: [
     {
-      src: "/images/gallery/img-01.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-02.jpg",
+      src: "/images/certificate/certificate-01.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-03.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-04.jpg",
+      src: "/images/certificate/certificate-02.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-05.jpg",
+      src: "/images/certificate/certificate-03.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-06.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-07.jpg",
+      src: "/images/certificate/certificate-04.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-08.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-09.jpg",
+      src: "/images/certificate/certificate-05.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-10.jpg",
+      src: "/images/certificate/certificate-06.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-11.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-12.jpg",
+      src: "/images/certificate/certificate-07.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-13.jpg",
+      src: "/images/certificate/certificate-08.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/img-14.jpg",
+      src: "/images/certificate/certificate-09.png",
       alt: "image",
       orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-10.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-11.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-12.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-13.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-14.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-15.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-16.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-17.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-18.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-19.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-20.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-21.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-22.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-23.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-24.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/certificate/certificate-25.png",
+      alt: "image",
+      orientation: "horizontal",
+
     },
   ],
 };
