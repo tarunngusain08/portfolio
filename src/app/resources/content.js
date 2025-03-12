@@ -111,9 +111,8 @@ const about = {
           <>
             <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
             <ul>
-              <li><strong>Deployed and fine-tuned Llama 3.1:70B model</strong> on dedicated GPU nodes.</li>
-              <li>Trained on <strong>10K+ internal documents</strong> from Confluence, JIRA, and Wikis.</li>
-              <li>Transformed into an <strong>AI-powered knowledge assistant</strong> for internal use.</li>
+              <li><strong>Fine-tuned Llama 3.1:70B model</strong> on dedicated GPU nodes.</li>
+              <li>Trained on <strong>1K+ internal documents</strong> from Confluence, JIRA, and Wikis.</li>
               <li><strong>Optimized retrieval-augmented generation (RAG) workflows</strong> for precise and context-aware responses tailored to internal business needs.</li>
             </ul>
           </>,
@@ -140,7 +139,7 @@ const about = {
                   <li>Real-time insights into nodes, profiles, jobs, and clusters</li>
                 </ul>
               </li>
-              <li>Ensured <strong>99.99% uptime</strong> across distributed clusters by improving data consistency, replication, and failover mechanisms.</li>
+              <li>Integrated RBAC with fine-grained access control, enforcing secure access across <strong>30+ APIs</strong> in the backend..</li>
             </ul>
           </>,
         
