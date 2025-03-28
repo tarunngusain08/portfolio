@@ -114,7 +114,7 @@ const about = {
                 <li><strong>Designed and implemented</strong> a scalable IAAS platform from scratch.</li>
                 <li><strong>Deployed MinIO</strong> as the blob storage layer in distributed mode with multi-node, multi-disk configuration.</li>
                 <li>Integrated <strong>Envoy as the API Gateway</strong> for load balancing, rate limiting, and enforcing mTLS across services.</li>
-                <li>Explored and benchmarked <strong>Dragonfly vs. Redis</strong> for caching, identifying Dragonfly's superior 5x performance on throughput and low/comparable latency for high RPS workloads.</li>
+                <li>Benchmarked <strong>Dragonfly vs. Redis</strong> for caching, identifying Dragonfly's superior 5x performance on throughput and low/comparable latency for high RPS workloads.</li>
             </ul>
           </>,
 
