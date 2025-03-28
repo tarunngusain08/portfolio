@@ -6,7 +6,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Staff Software Engineer",
+  role: "Senior Software Engineer",
   avatar: "/images/avatar.jpg",
   location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
@@ -62,13 +62,13 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Staff Software Engineer</>,
+  headline: <>Senior Software Engineer</>,
   subline: (
     <>
       I'm Tarunn, a software engineer at <InlineCode>Gruve.ai</InlineCode>, where I craft intuitive
-      <br /> user experiences and next gen software. With 4+ years of experience excels in 
-      Golang, Python, Java, and C. An active contributor on Github having 50+ repositories 
-      and solved 1300+ overall coding problems on platforms like LeetCode, Scaler & GeeksforGeeks.
+      <br /> user experiences and next gen software. With 4.5+ years of experience excels in 
+      Golang, Python, Java, and C. An active contributor on Github having 60+ repositories 
+      and solved 1500+ overall coding problems on platforms like LeetCode, Scaler & GeeksforGeeks.
     </>
   ),
 };
@@ -106,14 +106,24 @@ const about = {
       {
         company: "Gruve.ai | Paypal",
         timeframe: "Aug 2024 - Present",
-        role: "Staff Software Engineer",
+        role: "Senior Software Engineer",
         achievements: [
+          <>
+            <strong>🛠️ Architecting & Building Inference-as-a-Service (IAAS)</strong>
+            <ul>
+                <li><strong>Designed and implemented</strong> a scalable IAAS platform from scratch.</li>
+                <li><strong>Deployed MinIO</strong> as the blob storage layer in distributed mode with multi-node, multi-disk configuration.</li>
+                <li>Integrated <strong>Envoy as the API Gateway</strong> for load balancing, rate limiting, and enforcing mTLS across services.</li>
+                <li>Explored and benchmarked <strong>Dragonfly vs. Redis</strong> for caching, identifying Dragonfly's superior 5x performance on throughput and low/comparable latency for high RPS workloads.</li>
+            </ul>
+          </>,
+
+
           <>
             <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
             <ul>
-              <li><strong>Fine-tuned Llama 3.1:70B model</strong> on dedicated GPU nodes.</li>
-              <li>Trained on <strong>1K+ internal documents</strong> from Confluence, JIRA, and Wikis.</li>
-              <li><strong>Optimized retrieval-augmented generation (RAG) workflows</strong> for precise and context-aware responses tailored to internal business needs.</li>
+              <li><strong>Fine-tuned Llama 3.1:7B model</strong> on dedicated GPU.</li>
+              <li>Trained on <strong>10+ internal documents</strong> from Confluence.</li>
             </ul>
           </>,
         

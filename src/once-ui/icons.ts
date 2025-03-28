@@ -31,6 +31,9 @@ import {
   PiImageDuotone,
 } from "react-icons/pi";
 
+import LeetcodeIcon from "./icons/LeetcodeIcon";
+import ScalerIcon from "./icons/ScalerIcon";
+
 import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -63,4 +66,6 @@ export const iconLibrary: Record<string, IconType> = {
   x: FaXTwitter,
   clipboard: HiClipboard,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
+  leetcode: LeetcodeIcon,
+  scaler: ScalerIcon,
 };
