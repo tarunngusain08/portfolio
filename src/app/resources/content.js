@@ -150,6 +150,7 @@ const about = {
                 </ul>
               </li>
               <li>Integrated RBAC with fine-grained access control, enforcing secure access across <strong>30+ APIs</strong> in the backend..</li>
+              <li>Added latency logger middleware for overall latency for api calls and also integrated a latency tracker for all the dependencies like DB, K8s, Servicenow APIs to handle and observe the granular level response times.</li>
             </ul>
           </>,
         
