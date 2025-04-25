@@ -150,7 +150,8 @@ const about = {
                 </ul>
               </li>
               <li>Integrated RBAC with fine-grained access control, enforcing secure access across <strong>30+ APIs</strong> in the frontend..</li>
-              <li>Added latency logger middleware for overall latency for api calls and also integrated a latency tracker for all the dependencies like DB, K8s, Servicenow APIs to handle and observe the granular level response times.</li>
+              <li>Added latency logger middleware for overall latency for api calls and also integrated a latency tracker for all the dependencies 
+      like DB, K8s, Servicenow APIs to handle and observe the granular level response times.</li>
             </ul>
           </>,
         
@@ -158,7 +159,7 @@ const about = {
             <strong>🎤 Leadership, Knowledge Sharing & Community Engagement</strong>
             <ul>
               <li><strong>Led 5+ knowledge transfer (KT) sessions</strong> on DSA, System Design, and best engineering practices.</li>
-              <li><strong>Organized 2 rounds an internal hiring activity with AI theme for building a team for an alternate project.</li>
+              <li><strong>Organized 2 rounds an internal hiring activity</strong> with AI theme for building a team for an alternate project.</li>
               <li><strong>Interviewed 17+ candidates across 4+ roles</strong>, dedicating <strong>25+ hours</strong> to hiring and mentoring talent.</li>
               <li><strong>Hosted and organized a company-wide lunch session</strong> with the Director of Engineering and the entire engineering team, fostering collaboration and alignment.</li>
               <li><strong>Participated in 2 internal hackathons</strong>, winning <strong>1st place</strong> in one and securing <strong>2nd runner-up</strong> in another.</li>
