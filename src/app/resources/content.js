@@ -66,7 +66,7 @@ const home = {
   subline: (
     <>
       I'm Tarunn, a software engineer at <InlineCode>Gruve.ai</InlineCode>, where I craft intuitive
-      <br /> user experiences and next gen software. With 4.5+ years of experience excels in 
+      <br /> user experiences and next gen software. With 5+ years of experience excels in 
       Golang, Python, Java, and C. An active contributor on Github having 60+ repositories 
       and solved 1500+ overall coding problems on platforms like LeetCode, Scaler & GeeksforGeeks.
     </>
@@ -158,7 +158,7 @@ const about = {
             <strong>🎤 Leadership, Knowledge Sharing & Community Engagement</strong>
             <ul>
               <li><strong>Led 5+ knowledge transfer (KT) sessions</strong> on DSA, System Design, and best engineering practices.</li>
-              <li><strong>Conducted 2+ tech webinars</strong> on emerging technologies and system architecture best practices.</li>
+              <li><strong>Organized 2 rounds an internal hiring activity with AI theme for building a team for an alternate project.</li>
               <li><strong>Interviewed 17+ candidates across 4+ roles</strong>, dedicating <strong>25+ hours</strong> to hiring and mentoring talent.</li>
               <li><strong>Hosted and organized a company-wide lunch session</strong> with the Director of Engineering and the entire engineering team, fostering collaboration and alignment.</li>
               <li><strong>Participated in 2 internal hackathons</strong>, winning <strong>1st place</strong> in one and securing <strong>2nd runner-up</strong> in another.</li>
