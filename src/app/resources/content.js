@@ -179,13 +179,13 @@ const about = {
             height: 10,
           },
           {
-            src: "/images/projects/project-01/gruve1.jpg",
+            src: "/images/projects/project-01/gruve1.png",
             alt: "gruve1",
             width: 18,
             height: 10,
           },
           {
-            src: "/images/projects/project-01/gruve2.jpg",
+            src: "/images/projects/project-01/gruve2.png",
             alt: "gruve2",
             width: 18,
             height: 10,
