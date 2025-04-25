@@ -178,6 +178,18 @@ const about = {
             width: 18,
             height: 10,
           },
+          {
+            src: "/images/projects/project-01/gruve1.jpg",
+            alt: "gruve1",
+            width: 18,
+            height: 10,
+          },
+          {
+            src: "/images/projects/project-01/gruve2.jpg",
+            alt: "gruve2",
+            width: 18,
+            height: 10,
+          },
         ],
       },
       {
