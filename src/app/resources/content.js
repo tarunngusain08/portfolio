@@ -108,64 +108,86 @@ const about = {
         timeframe: "Aug 2024 - Present",
         role: "Senior Software Engineer",
         achievements: [
-          <>
-            <strong>🛠️ Architecting & Building Inference-as-a-Service (IAAS)</strong>
-            <ul>
+            <>
+              <strong>🛠️ Architecting & Building Inference-as-a-Service (IAAS)</strong>
+              <ul>
                 <li><strong>Designed and implemented</strong> a scalable IAAS platform from scratch.</li>
+                <li><strong>Created an MVP demo</strong> with inter-service communication using k3d/minikube environment.</li>
+                <li><strong>Onboarded 3 engineers</strong> and provided architectural guidance during ambiguity, ensuring steady progress.</li>
                 <li><strong>Deployed MinIO</strong> as the blob storage layer in distributed mode with multi-node, multi-disk configuration.</li>
                 <li>Integrated <strong>Envoy as the API Gateway</strong> for load balancing, rate limiting, and enforcing mTLS across services.</li>
                 <li>Benchmarked <strong>Dragonfly vs. Redis</strong> for caching, identifying Dragonfly's superior 5x performance on throughput and low/comparable latency for high RPS workloads.</li>
-            </ul>
-          </>,
+                <li><strong>Actively contributed beyond hours</strong> to push the IAAS initiative forward, a company priority backed by <strong>$50M in funding</strong> for setting up data centers.</li>
+              </ul>
+            </>,
 
+            <>
+              <strong>🔌 eBPF Inter nodes Connection Tracker System</strong>
+              <ul>
+                <li><strong>Led POC and benchmarking</strong> of InfluxDB vs MySQL for the conn-ebpf-agent’s data layer; analysis influenced architectural direction.</li>
+                <li><strong>Designed and implemented</strong> the connection tracker backend, including async-periodic-batch flush for MySQL ingestion.</li>
+                <li><strong>Fixed critical edge cases</strong> for bare-metal deployments, ensuring broader compatibility.</li>
+                <li><strong>Built and showcased 2 working demos</strong> of the conn-ebpf-agent using VMs on personal hardware, accelerating internal validation.</li>
+                <li><strong>Revamped the connection tracker UI</strong> by completing and enhancing abandoned work.</li>
+                <li><strong>Implemented module-level logging</strong> in conn-agent to prevent log flooding and improve debuggability.</li>
+                <li>Enhanced documentation around <strong>MySQL upsertion and scaling strategies</strong>, improving onboarding and maintainability.</li>
+              </ul>
+            </>,
+          
+            <>
+              <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
+              <ul>
+                <li><strong>Fine-tuned Llama 3.1:7B model</strong> on dedicated GPU.</li>
+                <li>Trained on <strong>10+ internal documents</strong> from Confluence.</li>
+              </ul>
+            </>,
+          
+            <>
+              <strong>🚀 Building an Internal GPU Cluster Manager for AI/ML Workloads</strong>
+              <ul>
+                <li><strong>Architected and deployed</strong> a GPU cluster management service from scratch.</li>
+                <li>Enabled <strong>seamless scheduling of AI/ML financial jobs</strong> for data scientists and operators.</li>
+                <li><strong>Orchestrated Kubernetes deployment</strong> on bare metal nodes.</li>
+                <li>Optimized concurrency by <strong>50%</strong> via <strong>NVIDIA MIG partitioning</strong>, ensuring efficient resource utilization across <strong>40 GPU nodes</strong> and <strong>60 CPU nodes</strong>.</li>
+                <li><strong>Designed and implemented</strong> 15+ high-performance <strong>Golang APIs</strong> for:
+                  <ul>
+                    <li>Node registration</li>
+                    <li>Job scheduling</li>
+                    <li>Profile management</li>
+                    <li>Cluster operations</li>
+                  </ul>
+                </li>
+                <li><strong>Developed a scalable and intuitive UI</strong> in React.js with:
+                  <ul>
+                    <li>4+ dynamic pages</li>
+                    <li>20+ components</li>
+                    <li>Real-time insights into nodes, profiles, jobs, and clusters</li>
+                  </ul>
+                </li>
+                <li>Integrated RBAC with fine-grained access control, enforcing secure access across <strong>30+ APIs</strong> in the frontend.</li>
+                <li><strong>Added latency logger middleware</strong> to track overall API latency and **granular response times** from DB, K8s, and ServiceNow APIs.</li>
+                <li><strong>Enhanced GCM UI</strong> with RBAC features and improved state machine transitions to elevate usability and control.</li>
+                <li><strong>Contributed to backend observability</strong> in GCM by integrating a custom latency logger for performance insights.</li>
+              </ul>
+            </>,
+          
+            <>
+              <strong>🎤 Leadership, Knowledge Sharing & Community Engagement</strong>
+              <ul>
+                <li><strong>Led 5+ knowledge transfer (KT) sessions</strong> on DSA, System Design, and best engineering practices.</li>
+                <li><strong>Consistently invested in building a learning-driven team culture</strong> by promoting DSA and technical upskilling within the team.</li>
+                <li><strong>Interviewed 17+ candidates across 4+ roles</strong>, contributing <strong>25+ hours</strong> for interviews and mentoring.</li>
+                <li><strong>Took 9 interviews</strong> in the last quarter alone, contributing <strong>14+ focused hours</strong> in deep evaluation and feedback.</li>
+                <li><strong>Reassessed and improved the hiring process</strong> by collaborating with the recruitment team, improving candidate experience and internal evaluation efficiency.</li>
+                <li><strong>Organized 2 rounds of internal hiring activities</strong> with an AI theme for alternate project staffing.</li>
+                <li><strong>Independently initiated and escalated org-level policy issues</strong> to co-founders, leading to <strong>company-wide changes</strong> that reduced employee dissatisfaction.</li>
+                <li><strong>Hosted and organized a company-wide lunch session</strong> with the Director of Engineering, strengthening cross-functional alignment.</li>
+                <li><strong>Participated in 2 internal hackathons</strong>, winning <strong>1st place</strong> in one and securing <strong>2nd runner-up</strong> in another.</li>
+              </ul>
+            </>
+          ]
 
-          <>
-            <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
-            <ul>
-              <li><strong>Fine-tuned Llama 3.1:7B model</strong> on dedicated GPU.</li>
-              <li>Trained on <strong>10+ internal documents</strong> from Confluence.</li>
-            </ul>
-          </>,
-        
-          <>
-            <strong>🚀 Building an Internal GPU Cluster Manager for AI/ML Workloads</strong>
-            <ul>
-              <li><strong>Architected and deployed</strong> a GPU cluster management service from scratch.</li>
-              <li>Enabled <strong>seamless scheduling of AI/ML financial jobs</strong> for data scientists and operators.</li>
-              <li><strong>Orchestrated Kubernetes deployment</strong> on bare metal nodes.</li>
-              <li>Optimized concurrency by <strong>50%</strong> via <strong>NVIDIA MIG partitioning</strong>, ensuring efficient resource utilization across <strong>40 GPU nodes</strong> and <strong>60 CPU nodes</strong>.</li>
-              <li><strong>Designed and implemented</strong> 15+ high-performance <strong>Golang APIs</strong> for:
-                <ul>
-                  <li>Node registration</li>
-                  <li>Job scheduling</li>
-                  <li>Profile management</li>
-                  <li>Cluster operations</li>
-                </ul>
-              </li>
-              <li><strong>Developed a scalable and intuitive UI</strong> in React.js with:
-                <ul>
-                  <li>4+ dynamic pages</li>
-                  <li>20+ components</li>
-                  <li>Real-time insights into nodes, profiles, jobs, and clusters</li>
-                </ul>
-              </li>
-              <li>Integrated RBAC with fine-grained access control, enforcing secure access across <strong>30+ APIs</strong> in the frontend..</li>
-              <li>Added latency logger middleware for overall latency for api calls and also integrated a latency tracker for all the dependencies 
-      like DB, K8s, Servicenow APIs to handle and observe the granular level response times.</li>
-            </ul>
-          </>,
-        
-          <>
-            <strong>🎤 Leadership, Knowledge Sharing & Community Engagement</strong>
-            <ul>
-              <li><strong>Led 5+ knowledge transfer (KT) sessions</strong> on DSA, System Design, and best engineering practices.</li>
-              <li><strong>Organized 2 rounds an internal hiring activity</strong> with AI theme for building a team for an alternate project.</li>
-              <li><strong>Interviewed 17+ candidates across 4+ roles</strong>, dedicating <strong>25+ hours</strong> to hiring and mentoring talent.</li>
-              <li><strong>Hosted and organized a company-wide lunch session</strong> with the Director of Engineering and the entire engineering team, fostering collaboration and alignment.</li>
-              <li><strong>Participated in 2 internal hackathons</strong>, winning <strong>1st place</strong> in one and securing <strong>2nd runner-up</strong> in another.</li>
-            </ul>
-          </>
-        ],
+          
         images: [
           // optional: leave the array empty if you don't want to display images
           {
