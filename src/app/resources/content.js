@@ -120,6 +120,19 @@ const about = {
                 <li><strong>Actively contributed beyond hours</strong> to push the IAAS initiative forward, a company priority backed by <strong>$50M in funding</strong> for setting up data centers.</li>
               </ul>
             </>,
+
+            <>
+              <strong>🔌 Inter-Service communication eBPF based connection-tracker Systems</strong>
+              <ul>
+                <li><strong>Led POC and benchmarking</strong> of InfluxDB vs MySQL for the conn-ebpf-agent’s data layer; analysis influenced architectural direction.</li>
+                <li><strong>Designed and implemented</strong> the connection tracker backend, including async-periodic-batch flush for MySQL ingestion.</li>
+                <li><strong>Fixed critical edge cases</strong> for bare-metal deployments, ensuring broader compatibility.</li>
+                <li><strong>Built and showcased 2 working demos</strong> of the conn-ebpf-agent using VMs on personal hardware, accelerating internal validation.</li>
+                <li><strong>Revamped the connection tracker UI</strong> by completing and enhancing abandoned work.</li>
+                <li><strong>Implemented module-level logging</strong> in conn-agent to prevent log flooding and improve debuggability.</li>
+                <li>Enhanced documentation around <strong>MySQL upsertion and scaling strategies</strong>, improving onboarding and maintainability.</li>
+              </ul>
+            </>,
         
             <>
               <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
@@ -155,19 +168,6 @@ const about = {
                 <li>Added latency logger middleware for overall latency for API calls and also integrated a latency tracker for all the dependencies like DB, K8s, and ServiceNow APIs to handle and observe the granular level response times.</li>
                 <li><strong>Enhanced GCM UI</strong> with RBAC features and improved state machine transitions to elevate usability and control.</li>
                 <li><strong>Contributed to backend observability</strong> in GCM by integrating a custom latency logger for performance insights.</li>
-              </ul>
-            </>,
-        
-            <>
-              <strong>🔌 Enhancing Observability & Conn-EBPF Systems</strong>
-              <ul>
-                <li><strong>Led POC and benchmarking</strong> of InfluxDB vs MySQL for the conn-ebpf-agent’s data layer; analysis influenced architectural direction.</li>
-                <li><strong>Designed and implemented</strong> the connection tracker backend, including async-periodic-batch flush for MySQL ingestion.</li>
-                <li><strong>Fixed critical edge cases</strong> for bare-metal deployments, ensuring broader compatibility.</li>
-                <li><strong>Built and showcased 2 working demos</strong> of the conn-ebpf-agent using VMs on personal hardware, accelerating internal validation.</li>
-                <li><strong>Revamped the connection tracker UI</strong> by completing and enhancing abandoned work.</li>
-                <li><strong>Implemented module-level logging</strong> in conn-agent to prevent log flooding and improve debuggability.</li>
-                <li>Enhanced documentation around <strong>MySQL upsertion and scaling strategies</strong>, improving onboarding and maintainability.</li>
               </ul>
             </>,
         
