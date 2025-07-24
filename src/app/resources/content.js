@@ -104,10 +104,10 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Gruve.ai | Paypal",
-        timeframe: "Aug 2024 - Present",
-        role: "Senior Software Engineer",
-        achievements: [
+          company: "Gruve.ai | Paypal",
+          timeframe: "Aug 2024 - Present",
+          role: "Senior Software Engineer",
+          achievements: [
             <>
               <strong>🛠️ Architecting & Building Inference-as-a-Service (IAAS)</strong>
               <ul>
@@ -120,20 +120,7 @@ const about = {
                 <li><strong>Actively contributed beyond hours</strong> to push the IAAS initiative forward, a company priority backed by <strong>$50M in funding</strong> for setting up data centers.</li>
               </ul>
             </>,
-
-            <>
-              <strong>🔌 eBPF Inter nodes Connection Tracker System</strong>
-              <ul>
-                <li><strong>Led POC and benchmarking</strong> of InfluxDB vs MySQL for the conn-ebpf-agent’s data layer; analysis influenced architectural direction.</li>
-                <li><strong>Designed and implemented</strong> the connection tracker backend, including async-periodic-batch flush for MySQL ingestion.</li>
-                <li><strong>Fixed critical edge cases</strong> for bare-metal deployments, ensuring broader compatibility.</li>
-                <li><strong>Built and showcased 2 working demos</strong> of the conn-ebpf-agent using VMs on personal hardware, accelerating internal validation.</li>
-                <li><strong>Revamped the connection tracker UI</strong> by completing and enhancing abandoned work.</li>
-                <li><strong>Implemented module-level logging</strong> in conn-agent to prevent log flooding and improve debuggability.</li>
-                <li>Enhanced documentation around <strong>MySQL upsertion and scaling strategies</strong>, improving onboarding and maintainability.</li>
-              </ul>
-            </>,
-          
+        
             <>
               <strong>🧠 Deploying AI-powered RAG Agent on GPUs</strong>
               <ul>
@@ -141,7 +128,7 @@ const about = {
                 <li>Trained on <strong>10+ internal documents</strong> from Confluence.</li>
               </ul>
             </>,
-          
+        
             <>
               <strong>🚀 Building an Internal GPU Cluster Manager for AI/ML Workloads</strong>
               <ul>
@@ -165,12 +152,25 @@ const about = {
                   </ul>
                 </li>
                 <li>Integrated RBAC with fine-grained access control, enforcing secure access across <strong>30+ APIs</strong> in the frontend.</li>
-                <li><strong>Added latency logger middleware</strong> to track overall API latency and **granular response times** from DB, K8s, and ServiceNow APIs.</li>
+                <li>Added latency logger middleware for overall latency for API calls and also integrated a latency tracker for all the dependencies like DB, K8s, and ServiceNow APIs to handle and observe the granular level response times.</li>
                 <li><strong>Enhanced GCM UI</strong> with RBAC features and improved state machine transitions to elevate usability and control.</li>
                 <li><strong>Contributed to backend observability</strong> in GCM by integrating a custom latency logger for performance insights.</li>
               </ul>
             </>,
-          
+        
+            <>
+              <strong>🔌 Enhancing Observability & Conn-EBPF Systems</strong>
+              <ul>
+                <li><strong>Led POC and benchmarking</strong> of InfluxDB vs MySQL for the conn-ebpf-agent’s data layer; analysis influenced architectural direction.</li>
+                <li><strong>Designed and implemented</strong> the connection tracker backend, including async-periodic-batch flush for MySQL ingestion.</li>
+                <li><strong>Fixed critical edge cases</strong> for bare-metal deployments, ensuring broader compatibility.</li>
+                <li><strong>Built and showcased 2 working demos</strong> of the conn-ebpf-agent using VMs on personal hardware, accelerating internal validation.</li>
+                <li><strong>Revamped the connection tracker UI</strong> by completing and enhancing abandoned work.</li>
+                <li><strong>Implemented module-level logging</strong> in conn-agent to prevent log flooding and improve debuggability.</li>
+                <li>Enhanced documentation around <strong>MySQL upsertion and scaling strategies</strong>, improving onboarding and maintainability.</li>
+              </ul>
+            </>,
+        
             <>
               <strong>🎤 Leadership, Knowledge Sharing & Community Engagement</strong>
               <ul>
@@ -181,11 +181,11 @@ const about = {
                 <li><strong>Reassessed and improved the hiring process</strong> by collaborating with the recruitment team, improving candidate experience and internal evaluation efficiency.</li>
                 <li><strong>Organized 2 rounds of internal hiring activities</strong> with an AI theme for alternate project staffing.</li>
                 <li><strong>Independently initiated and escalated org-level policy issues</strong> to co-founders, leading to <strong>company-wide changes</strong> that reduced employee dissatisfaction.</li>
-                <li><strong>Hosted and organized a company-wide lunch session</strong> with the Director of Engineering, strengthening cross-functional alignment.</li>
+                <li><strong>Hosted and organized a company-wide lunch session</strong> with the Director of Engineering and the entire engineering team, fostering collaboration and alignment.</li>
                 <li><strong>Participated in 2 internal hackathons</strong>, winning <strong>1st place</strong> in one and securing <strong>2nd runner-up</strong> in another.</li>
               </ul>
             </>
-          ]
+          ],
 
           
         images: [
