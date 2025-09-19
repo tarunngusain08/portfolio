@@ -131,6 +131,8 @@ const about = {
                 <li><strong>Revamped the connection tracker UI</strong> by completing and enhancing abandoned work.</li>
                 <li><strong>Implemented module-level logging</strong> in conn-agent to prevent log flooding and improve debuggability.</li>
                 <li>Enhanced documentation around <strong>MySQL upsertion and scaling strategies</strong>, improving onboarding and maintainability.</li>
+                <li><strong>Created Advanced Query Dashboard & Backend</strong> for analysis by enabling SQL-like syntax to query directly from the UI.</li>
+                <li><strong>Built Natural Language Query Dashboard & Backend</strong> leveraging internally hosted GCP LLMs (LLaMA, Claude, DeepSeek, Qwen), ensuring performance, accuracy, and robust fallbacks across models.</li>
               </ul>
             </>,
         
