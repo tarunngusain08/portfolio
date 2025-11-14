@@ -111,15 +111,21 @@ const about = {
             <>
               <strong>🛠️ Architecting & Building Inference-as-a-Service (IAAS)</strong>
               <ul>
-                <li><strong>Designed and implemented</strong> a scalable IAAS platform from scratch.</li>
-                <li><strong>Created an MVP demo</strong> with inter-service communication using k3d/minikube environment.</li>
-                <li><strong>Onboarded 3 engineers</strong> and provided architectural guidance during ambiguity, ensuring steady progress.</li>
-                <li><strong>Deployed MinIO</strong> as the blob storage layer in distributed mode with multi-node, multi-disk configuration.</li>
-                <li>Integrated <strong>Envoy as the API Gateway</strong> for load balancing, rate limiting, and enforcing mTLS across services.</li>
-                <li>Benchmarked <strong>Dragonfly vs. Redis</strong> for caching, identifying Dragonfly's superior 5x performance on throughput and low/comparable latency for high RPS workloads.</li>
-                <li><strong>Actively contributed beyond hours</strong> to push the IAAS initiative forward, a company priority backed by <strong>$50M in funding</strong> for setting up data centers.</li>
-              </ul>
-            </>,
+                  <li><strong>Designed and implemented</strong> a scalable IAAS platform from scratch.</li>
+                  <li><strong>Created an MVP demo</strong> with inter-service communication using k3d/minikube environment.</li>
+                  <li><strong>Onboarded 3 engineers</strong> and provided architectural guidance during ambiguity, ensuring steady progress.</li>
+                  <li><strong>Deployed MinIO</strong> as the blob storage layer in distributed mode with multi-node, multi-disk configuration.</li>
+                  <li>Integrated <strong>Envoy as the API Gateway</strong> for load balancing, rate limiting, and enforcing mTLS across services.</li>
+                  <li>Benchmarked <strong>Dragonfly vs. Redis</strong> for caching, identifying Dragonfly's superior 5x performance on throughput and low/comparable latency for high RPS workloads.</li>
+              
+                  <li><strong>POCed and benchmarked Opik and Langfuse</strong> to evaluate observability and LLM-analytics tooling for the IAAS platform.</li>
+                  <li><strong>Designed and implemented the Quotas & Billing Service</strong> for IAAS, including usage metering, quota enforcement, and billing primitives.</li>
+                  <li><strong>Built quota-service APIs and UI components</strong> for the ML platform, enabling user-facing quota visualization and enforcement.</li>
+              
+                  <li><strong>Actively contributed beyond hours</strong> to push the IAAS initiative forward, a company priority backed by <strong>$50M in funding</strong> for setting up data centers.</li>
+                </ul>
+              </>,
+
 
             <>
               <strong>🔌 Inter-Service communication eBPF based connection-tracker Systems</strong>
@@ -132,7 +138,7 @@ const about = {
                 <li><strong>Implemented module-level logging</strong> in conn-agent to prevent log flooding and improve debuggability.</li>
                 <li>Enhanced documentation around <strong>MySQL upsertion and scaling strategies</strong>, improving onboarding and maintainability.</li>
                 <li><strong>Created Advanced Query Dashboard & Backend</strong> for analysis by enabling SQL-like syntax to query directly from the UI.</li>
-                <li><strong>Built Natural Language Query Dashboard & Backend</strong> leveraging internally hosted GCP LLMs (LLaMA, Claude, DeepSeek, Qwen), ensuring performance, accuracy, and robust fallbacks across models.</li>
+                <li><strong>Built Natural Language Processing Query Dashboard & Backend</strong> leveraging internally hosted GCP LLMs (LLaMA, Claude, DeepSeek, Qwen), ensuring performance, accuracy, and robust fallbacks across models.</li>
               </ul>
             </>,
         
