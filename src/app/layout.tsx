@@ -1,29 +1,34 @@
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
-import classNames from "classnames";
+import { Footer, Header } from "@/components";
+import { effects, style } from "@/app/resources";
 
-import { Footer, Header, RouteGuard } from "@/components";
-import { baseURL, effects, style } from "@/app/resources";
-
-import { Inter } from "next/font/google";
-import { Source_Code_Pro } from "next/font/google";
-
-import { person, home } from "@/app/resources/content";
+import { site } from "@/app/resources/portfolio";
 import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
 
 export async function generateMetadata() {
   return {
-    metadataBase: new URL(`https://${baseURL}`),
-    title: home.title,
-    description: home.description,
+    metadataBase: new URL(site.url),
+    title: {
+      default: `${site.name} | ${site.role}`,
+      template: "%s",
+    },
+    description: site.description,
+    alternates: { canonical: "/" },
     openGraph: {
-      title: `${person.firstName}'s Portfolio`,
-      description: "Portfolio website showcasing my work.",
-      url: baseURL,
-      siteName: `${person.firstName}'s Portfolio`,
-      locale: "en_US",
+      title: `${site.name} | ${site.role}`,
+      description: site.description,
+      url: site.url,
+      siteName: `${site.name} — Engineering Portfolio`,
       type: "website",
+      images: [{ url: `/og?title=${encodeURIComponent(site.name)}`, alt: `${site.name} portfolio` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${site.name} | ${site.role}`,
+      description: site.description,
+      images: [`/og?title=${encodeURIComponent(site.name)}`],
     },
     robots: {
       index: true,
@@ -38,31 +43,6 @@ export async function generateMetadata() {
     },
   };
 }
-
-const primary = Inter({
-  variable: "--font-primary",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-type FontConfig = {
-  variable: string;
-};
-
-/*
-	Replace with code for secondary and tertiary fonts
-	from https://once-ui.com/customize
-*/
-const secondary: FontConfig | undefined = undefined;
-const tertiary: FontConfig | undefined = undefined;
-/*
- */
-
-const code = Source_Code_Pro({
-  variable: "--font-code",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -83,12 +63,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       data-border={style.border}
       data-surface={style.surface}
       data-transition={style.transition}
-      className={classNames(
-        primary.variable,
-        secondary ? secondary.variable : "",
-        tertiary ? tertiary.variable : "",
-        code.variable,
-      )}
     >
       <ToastProvider>
         <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
@@ -151,7 +125,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             flex={1}
           >
             <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
+              {children}
             </Flex>
           </Flex>
           <Footer />

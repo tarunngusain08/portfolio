@@ -1,0 +1,27 @@
+---
+title: "ArchBattle — Real-time system-design learning platform"
+publishedAt: "2026-09-29"
+summary: "A Go-based multiplayer system-design platform using WebSockets, Redis Streams and PostgreSQL for live battles and replayable events."
+images: []
+team: []
+link: "https://github.com/tarunngusain08/ArchBattle"
+---
+
+## The product
+
+ArchBattle is a real-time system-design learning platform: engineers join multiplayer design battles, work through daily challenges and contribute to structured discussions. The implementation is useful evidence of backend and distributed-workflow design beyond enterprise projects.
+
+## System shape
+
+The core Go service owns matchmaking, the game and question engines, leaderboards, daily challenges and the WebSocket gateway. Redis Streams carry per-match events, with reconnect replay from the last sequence; PostgreSQL stores persistent state. A separate stateless Go AI service wraps Claude for tutoring and learning workflows, isolating cost metering and rate limiting from the core service.
+
+The React and TypeScript client communicates with the core through REST and WebSockets. Answer ordering uses Redis sorted-set insertion and a monotonic counter to keep tie-breaking deterministic.
+
+## Engineering focus
+
+- Separate the core real-time service from the AI integration boundary.
+- Replay match events for reconnect instead of relying on a transient socket session.
+- Make ordering and tie-breaking explicit in concurrent answer submission.
+- Keep persistent state in PostgreSQL and match event transport in Redis Streams.
+
+**Stack:** Go, WebSockets, REST, Redis Streams, PostgreSQL, Claude API, React, TypeScript.

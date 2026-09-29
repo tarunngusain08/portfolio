@@ -1,0 +1,40 @@
+---
+title: "Knowledge Forge — Evidence-grounded repository intelligence"
+publishedAt: "2026-09-29"
+summary: "A Go and RAG platform that answers repository questions with cited source evidence, evaluation and explicit support checks."
+images: []
+team: []
+link: "https://github.com/tarunngusain08/rag-knowledge-forge"
+---
+
+## The problem
+
+Large repositories are difficult to understand from a README or a single retrieval result. An answer can sound plausible while citing a file that does not actually support the claim. Knowledge Forge is built around that gap: repository answers, reports and plans should be inspectable against the source snapshot that produced them.
+
+## How it works
+
+The React/Vite interface calls a Go service built with Chi. Repository snapshots and source evidence are stored in PostgreSQL; document retrieval combines PostgreSQL full-text search with Pinecone dense retrieval. Reciprocal-rank fusion combines candidates, optional reranking refines them, and an evidence-support gate assembles a bounded context for Gemini. Responses include citations and retrieval traces.
+
+```text
+Repository snapshot
+  → dense retrieval + PostgreSQL full-text search
+  → rank fusion and optional reranking
+  → evidence-support check
+  → bounded context
+  → answer, report, plan or impact analysis with citations
+```
+
+The repository path retains owner, branch and commit identity, file versions, line ranges, provenance and the cited excerpts used by generated outputs. Unsupported questions should be refused instead of filled with external or stale knowledge.
+
+## Engineering decisions
+
+- **Evidence before generation:** retrieved text must support the question, not merely share its subject.
+- **Authorization at retrieval time:** dense and full-text results are scoped before evidence enters the response; deleted content is revoked.
+- **Evaluate the whole workflow:** a Python runner compares candidate outputs with frozen benchmark and acceptance fixtures.
+- **Keep the deployment boundary explicit:** the documented GCP path uses Cloud Run, Cloud SQL, Cloud Tasks, Secret Manager, Vertex AI and Pinecone.
+
+## Project benchmark
+
+In the Phase 18.5 project benchmark, Knowledge Forge answered 68 of 70 rows correctly across synthetic, Helm and OpenTelemetry Collector corpora. The README characterizes the result as generalization within infrastructure, platform and developer-tooling scope; it does not establish performance across every repository type. These are project benchmark results, not production or customer metrics.
+
+**Stack:** Go, Chi, pgx, sqlc, PostgreSQL, Pinecone, Vertex AI, Gemini, React/Vite, Python, Docker Compose.

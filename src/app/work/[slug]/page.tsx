@@ -1,129 +1,76 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
-import { person } from "@/app/resources/content";
-import { formatDate } from "@/app/utils/formatDate";
-import ScrollToHash from "@/components/ScrollToHash";
+import { pageMetadata } from "@/app/resources/seo";
+import { publicProjects, site } from "@/app/resources/portfolio";
+import { ContactBand } from "@/components/portfolio/PortfolioSections";
+import styles from "@/components/portfolio/portfolio.module.scss";
 
 interface WorkParams {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 }
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+function allProjects() {
+  const featuredSlugs = new Set(publicProjects.map((project) => project.slug));
+  return getPosts(["src", "app", "work", "projects"]).filter((post) => featuredSlugs.has(post.slug));
+}
+
+export const dynamicParams = false;
+
+export function generateStaticParams(): { slug: string }[] {
+  return allProjects().map((post) => ({ slug: post.slug }));
 }
 
 export function generateMetadata({ params: { slug } }: WorkParams) {
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slug);
+  const post = allProjects().find((item) => item.slug === slug);
+  if (!post) return;
 
-  if (!post) {
-    return;
-  }
-
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    images,
-    image,
-    team,
-  } = post.metadata;
-  let ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
-
-  return {
-    title,
-    description,
-    images,
-    team,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `https://${baseURL}/work/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
+  return pageMetadata({
+    title: post.metadata.title,
+    description: post.metadata.summary,
+    path: `/work/${post.slug}`,
+    type: "article",
+  });
 }
 
 export default function Project({ params }: WorkParams) {
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === params.slug);
+  const post = allProjects().find((item) => item.slug === params.slug);
+  if (!post) notFound();
 
-  if (!post) {
-    notFound();
-  }
-
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: post.metadata.title,
+    description: post.metadata.summary,
+    datePublished: post.metadata.publishedAt,
+    url: `${site.url}/work/${post.slug}`,
+    author: { "@type": "Person", name: site.name },
+    sameAs: post.metadata.link || undefined,
+  };
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <main className={styles.page}>
       <script
         type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `https://${baseURL}${post.metadata.image}`
-              : `https://${baseURL}/og?title=${post.metadata.title}`,
-            url: `https://${baseURL}/work/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: person.name,
-            },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
       />
-      <Column maxWidth="xs" gap="16">
-        <Button href="/work" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
-          Projects
-        </Button>
-        <Heading variant="display-strong-s">{post.metadata.title}</Heading>
-      </Column>
-      {post.metadata.images.length > 0 && (
-        <SmartImage
-          priority
-          aspectRatio="16 / 9"
-          radius="m"
-          alt="image"
-          src={post.metadata.images[0]}
-        />
-      )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <Flex gap="12" marginBottom="24" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
-          <Text variant="body-default-s" onBackground="neutral-weak">
-            {formatDate(post.metadata.publishedAt)}
-          </Text>
-        </Flex>
+      <header className={styles.section}>
+        <a className={styles.textLink} href="/work">← All selected work</a>
+        <p className={styles.eyebrow} style={{ marginTop: "2rem" }}>PROJECT NOTES · {post.slug.replaceAll("-", " ")}</p>
+        <h1 className={styles.sectionTitle}>{post.metadata.title}</h1>
+        <p className={styles.sectionDescription}>{post.metadata.summary}</p>
+        {post.metadata.link && (
+          <div style={{ marginTop: "1.25rem" }}>
+            <a className={styles.buttonSecondary} href={post.metadata.link} target="_blank" rel="noreferrer">
+              Open source repository <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        )}
+      </header>
+      <article className={styles.prose}>
         <CustomMDX source={post.content} />
-      </Column>
-      <ScrollToHash />
-    </Column>
+      </article>
+      <ContactBand />
+    </main>
   );
 }

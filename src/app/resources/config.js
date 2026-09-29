@@ -1,40 +1,35 @@
-const baseURL = "demo.magic-portfolio.com";
+const baseURL = "portfolio-ishhyoboytaruns-projects.vercel.app";
 
 const routes = {
   "/": true,
+  "/experience": true,
   "/about": true,
   "/work": true,
-  "/blog": true,
-  "/gallery": true,
-};
-
-// Enable password protection on selected routes
-// Set password in pages/api/authenticate.ts
-const protectedRoutes = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+  "/blog": false,
+  "/gallery": false,
 };
 
 const style = {
   theme: "dark", // dark | light
   neutral: "gray", // sand | gray | slate
   brand: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  accent: "orange", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  accent: "aqua", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative
-  surface: "translucent", // filled | translucent
-  transition: "all", // all | micro | macro
+  border: "conservative", // rounded | playful | conservative
+  surface: "filled", // filled | translucent
+  transition: "micro", // all | micro | macro
 };
 
 const effects = {
   mask: {
-    cursor: true,
+    cursor: false,
     x: 0,
     y: 0,
     radius: 75,
   },
   gradient: {
-    display: true,
+    display: false,
     x: 50,
     y: 0,
     width: 100,
@@ -45,7 +40,7 @@ const effects = {
     opacity: 50,
   },
   dots: {
-    display: true,
+    display: false,
     size: 2,
     color: "brand-on-background-weak",
     opacity: 20,
@@ -106,4 +101,4 @@ const mailchimp = {
   },
 };
 
-export { routes, protectedRoutes, effects, style, display, mailchimp, baseURL };
+export { routes, effects, style, display, mailchimp, baseURL };

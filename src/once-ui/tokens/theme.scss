@@ -1,5 +1,9 @@
 :root {
     /* FONT FAMILY */
+    --font-primary:         -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-secondary:       var(--font-primary);
+    --font-tertiary:        var(--font-primary);
+    --font-code:            ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
     --font-family-body:     var(--font-primary);
     --font-family-heading:  var(--font-secondary);
     --font-family-label:    var(--font-tertiary);

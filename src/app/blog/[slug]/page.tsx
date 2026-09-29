@@ -6,6 +6,7 @@ import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
+import { pageMetadata } from "@/app/resources/seo";
 
 interface BlogParams {
   params: {
@@ -27,37 +28,12 @@ export function generateMetadata({ params: { slug } }: BlogParams) {
     return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    images,
-    image,
-    team,
-  } = post.metadata;
-  let ogImage = image ? `https://${baseURL}${image}` : `https://${baseURL}/og?title=${title}`;
-
+  const { title, publishedAt, summary: description } = post.metadata;
+  const page = pageMetadata({ title, description, path: `/blog/${post.slug}`, type: "article" });
   return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `https://${baseURL}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
+    ...page,
+    openGraph: { ...page.openGraph, publishedTime: publishedAt },
+    robots: { index: false, follow: true },
   };
 }
 
