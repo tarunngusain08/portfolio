@@ -1,126 +1,100 @@
-import Link from "next/link";
+import React from "react";
+
+import { Heading, Flex, Text, Button, Avatar, RevealFx, Column } from "@/once-ui/components";
+import { Projects } from "@/components/work/Projects";
+
+import { baseURL, routes } from "@/app/resources";
+import { home, about, person, newsletter } from "@/app/resources/content";
 import { pageMetadata } from "@/app/resources/seo";
-import { engineeringPrinciples, site, skillGroups } from "@/app/resources/portfolio";
-import {
-  CaseStudyGrid,
-  ContactBand,
-  ExperienceList,
-  MetricStrip,
-  ProjectGrid,
-  SectionHeading,
-  SkillGroups,
-} from "@/components/portfolio/PortfolioSections";
-import styles from "@/components/portfolio/portfolio.module.scss";
+import { Mailchimp } from "@/components";
+import { Posts } from "@/components/blog/Posts";
 
 export function generateMetadata() {
-  return pageMetadata({ title: `${site.name} | ${site.role}`, description: site.description, path: "/" });
+  return pageMetadata({ title: home.title, description: home.description, path: "/" });
 }
 
 export default function Home() {
-  const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: site.name,
-      jobTitle: site.role,
-      description: site.description,
-      url: site.url,
-      image: `${site.url}/images/avatar.jpg`,
-      sameAs: [site.github, site.linkedin],
-      knowsAbout: skillGroups.flatMap((group) => group.skills),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: `${site.name} — Engineering Portfolio`,
-      url: site.url,
-      author: { "@type": "Person", name: site.name },
-    },
-  ];
-
   return (
-    <main className={styles.page}>
+    <Column maxWidth="m" gap="xl" horizontal="center">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: home.title,
+            description: home.description,
+            url: `https://${baseURL}`,
+            image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
+            publisher: {
+              "@type": "Person",
+              name: person.name,
+              image: {
+                "@type": "ImageObject",
+                url: `${baseURL}${person.avatar}`,
+              },
+            },
+          }),
+        }}
       />
-
-      <section className={styles.hero} aria-labelledby="home-heading">
-        <p className={styles.heroKicker}>TARUNN GUSAIN <span aria-hidden="true">/</span> FORWARD DEPLOYED ENGINEER · SENIOR BACKEND ENGINEER</p>
-        <h1 className={styles.heroTitle} id="home-heading">
-          Production systems, from <span>discovery</span> through operations.
-        </h1>
-        <p className={styles.heroLead}>
-          Forward Deployed Engineer and Senior Backend Engineer building distributed systems,
-          cloud platforms and production AI—from ambiguous requirements to reliable services.
-        </p>
-        <div className={styles.heroActions}>
-          <Link className={styles.button} href="/work">View selected work <span aria-hidden="true">↘</span></Link>
-          <a className={styles.buttonSecondary} href={`mailto:${site.email}?subject=Engineering%20opportunity`}>Contact by email</a>
-        </div>
-        <div className={styles.inlineLinks} aria-label="Professional profiles">
-          <a className={styles.textLink} href={site.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          <a className={styles.textLink} href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-
-      <MetricStrip />
-
-      <section className={styles.section} aria-labelledby="impact-heading">
-        <SectionHeading
-          id="impact-heading"
-          eyebrow="PROFESSIONAL IMPACT"
-          title="Systems work with measurable outcomes."
-          description="Sanitized summaries of enterprise work across retrieval, GPU infrastructure and cloud reliability."
-          href="/experience"
-          linkLabel="Full experience"
-        />
-        <CaseStudyGrid />
-      </section>
-
-      <section className={styles.section} aria-labelledby="projects-heading">
-        <SectionHeading
-          id="projects-heading"
-          eyebrow="PUBLIC ENGINEERING PROJECTS"
-          title="Inspect the systems, not just the claims."
-          description="Three current projects show how I approach evidence, evaluation and distributed workflows in code you can review."
-          href="/work"
-          linkLabel="All selected work"
-        />
-        <ProjectGrid />
-      </section>
-
-      <section className={styles.section} aria-labelledby="experience-heading">
-        <SectionHeading
-          id="experience-heading"
-          eyebrow="EXPERIENCE"
-          title="Backend foundations, platform ownership, applied AI."
-          href="/experience"
-          linkLabel="Read the timeline"
-        />
-        <ExperienceList limit={3} />
-      </section>
-
-      <section className={styles.section} aria-labelledby="focus-heading">
-        <SectionHeading id="focus-heading" eyebrow="TECHNICAL FOCUS" title="Backend depth, with the platform context around it." />
-        <SkillGroups />
-      </section>
-
-      <section className={styles.section} aria-labelledby="approach-heading">
-        <SectionHeading id="approach-heading" eyebrow="ENGINEERING APPROACH" title="Make the hard parts visible." />
-        <div className={styles.introGrid}>
-          <p className={styles.prose}>
-            I work close to the problem: clarify what a customer or product team needs, shape the architecture,
-            build the backend and integrations, then stay accountable for how the system behaves in production.
-            Go and distributed systems are the foundation; AI systems are an extension of that production work.
-          </p>
-          <ul className={styles.principleList}>
-            {engineeringPrinciples.map((principle) => <li key={principle}>{principle}</li>)}
-          </ul>
-        </div>
-      </section>
-
-      <ContactBand />
-    </main>
+      <Column fillWidth paddingY="l" gap="m">
+        <Column maxWidth="s">
+          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="m">
+            <Heading wrap="balance" variant="display-strong-l">
+              {home.headline}
+            </Heading>
+          </RevealFx>
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="m">
+            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+              {home.subline}
+            </Text>
+          </RevealFx>
+          <RevealFx translateY="12" delay={0.4} horizontal="start">
+            <Button
+              id="about"
+              data-border="rounded"
+              href="/about"
+              variant="secondary"
+              size="m"
+              arrowIcon
+            >
+              <Flex gap="8" vertical="center">
+                {about.avatar.display && (
+                  <Avatar
+                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                    src={person.avatar}
+                    size="m"
+                  />
+                )}
+                {about.title}
+              </Flex>
+            </Button>
+          </RevealFx>
+        </Column>
+      </Column>
+      <RevealFx translateY="16" delay={0.6}>
+        <Projects range={[1, 1]} />
+      </RevealFx>
+      {routes["/blog"] && (
+        <Flex fillWidth gap="24" mobileDirection="column">
+          <Flex flex={1} paddingLeft="l">
+            <Heading as="h2" variant="display-strong-xs" wrap="balance">
+              Latest from the blog
+            </Heading>
+          </Flex>
+          <Flex flex={3} paddingX="20">
+            <Posts range={[1, 2]} columns="2" />
+          </Flex>
+        </Flex>
+      )}
+      <Projects range={[2, 3]} />
+      <Flex fillWidth horizontal="center" paddingTop="m">
+        <Button href="/work" variant="secondary" size="m" arrowIcon>
+          Explore the complete project archive
+        </Button>
+      </Flex>
+      {newsletter.display && <Mailchimp newsletter={newsletter} />}
+    </Column>
   );
 }

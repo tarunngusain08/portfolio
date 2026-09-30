@@ -1,0 +1,25 @@
+---
+title: "Fine-Tuning AI Models — LoRA experiments with Qwen"
+publishedAt: "2025-03-08"
+summary: "A hands-on model fine-tuning project documenting Qwen2.5 3B LoRA training, dataset sizing, training metrics and memory constraints."
+images:
+  - "/images/projects/current/fine-tuning-training-100-inputs.png"
+previewAspectRatio: "4 / 3"
+team: []
+link: "https://github.com/tarunngusain08/Fine-Tuning-AI-Models"
+---
+
+## Training experiments
+
+This repository records practical experiments with fine-tuning open models, including Qwen2.5 3B with LoRA. The work follows the path from preparing and tokenizing data through adapter training and a local inference check, with runs at different dataset sizes.
+
+The captured run uses more than 100 input examples and reports training runtime and loss alongside the generated response. The repository also documents an attempted Llama 3.1 8B run that stopped because the available memory was insufficient. That limit is part of the experiment record rather than a claimed successful run.
+
+## What the project explores
+
+- Applying parameter-efficient LoRA fine-tuning to an open model.
+- Comparing how token and example counts affect a local training run.
+- Inspecting trainable parameter counts, training loss and runtime.
+- Recording hardware and memory limits that affect model choice.
+
+**Stack:** Python, Transformers, PEFT, Qwen2.5, LoRA.

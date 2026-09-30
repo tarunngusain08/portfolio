@@ -1,11 +1,26 @@
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
+import classNames from "classnames";
 import { Footer, Header } from "@/components";
 import { effects, style } from "@/app/resources";
+import localFont from "next/font/local";
 
 import { site } from "@/app/resources/portfolio";
 import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
+
+const primary = localFont({
+  src: "./fonts/Inter-Variable.ttf",
+  variable: "--font-primary",
+  weight: "100 900",
+  display: "swap",
+});
+const code = localFont({
+  src: "./fonts/SourceCodePro-Variable.ttf",
+  variable: "--font-code",
+  weight: "200 900",
+  display: "swap",
+});
 
 export async function generateMetadata() {
   return {
@@ -53,6 +68,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <Flex
       as="html"
       lang="en"
+      className={classNames(primary.variable, code.variable)}
       background="page"
       data-neutral={style.neutral}
       data-brand={style.brand}

@@ -5,31 +5,31 @@ const routes = {
   "/experience": true,
   "/about": true,
   "/work": true,
-  "/blog": false,
-  "/gallery": false,
+  "/blog": true,
+  "/gallery": true,
 };
 
 const style = {
   theme: "dark", // dark | light
   neutral: "gray", // sand | gray | slate
   brand: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  accent: "aqua", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  accent: "orange", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
-  border: "conservative", // rounded | playful | conservative
-  surface: "filled", // filled | translucent
-  transition: "micro", // all | micro | macro
+  border: "playful", // rounded | playful | conservative
+  surface: "translucent", // filled | translucent
+  transition: "all", // all | micro | macro
 };
 
 const effects = {
   mask: {
-    cursor: false,
+    cursor: true,
     x: 0,
     y: 0,
     radius: 75,
   },
   gradient: {
-    display: false,
+    display: true,
     x: 50,
     y: 0,
     width: 100,
@@ -40,7 +40,7 @@ const effects = {
     opacity: 50,
   },
   dots: {
-    display: false,
+    display: true,
     size: 2,
     color: "brand-on-background-weak",
     opacity: 20,

@@ -1,46 +1,185 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { site } from "@/app/resources/portfolio";
+import { useEffect, useState } from "react";
+
+import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
-const navigation = [
-  { label: "Home", href: "/" },
-  { label: "Experience", href: "/experience" },
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
-];
+import { routes, display } from "@/app/resources";
+import { person, home, about, blog, work, gallery } from "@/app/resources/content";
+
+type TimeDisplayProps = {
+  timeZone: string;
+  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+};
+
+const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+    const intervalId = setInterval(updateTime, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [timeZone, locale]);
+
+  return <>{currentTime}</>;
+};
+
+export default TimeDisplay;
 
 export const Header = () => {
-  const pathname = usePathname() ?? "/";
+  const pathname = usePathname() ?? "";
 
   return (
-    <header className={styles.header}>
-      <div className={styles.inner}>
-        <Link className={styles.brand} href="/" aria-label={`${site.name} home`}>
-          <span aria-hidden="true">TG</span>
-        </Link>
-        <nav className={styles.navigation} aria-label="Main navigation">
-          {navigation.map((item) => {
-            const selected = item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`);
-
-            return (
-              <Link
-                className={selected ? `${styles.navLink} ${styles.selected}` : styles.navLink}
-                aria-current={selected ? "page" : undefined}
-                href={item.href}
-                key={item.href}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-        <a className={styles.contact} href={`mailto:${site.email}?subject=Engineering%20opportunity`}>
-          Contact <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </header>
+    <>
+      <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
+      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Flex
+        fitHeight
+        className={styles.position}
+        as="header"
+        zIndex={9}
+        fillWidth
+        padding="8"
+        horizontal="center"
+      >
+        <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
+          {display.location && <Flex hide="s">{person.location}</Flex>}
+        </Flex>
+        <Flex fillWidth horizontal="center">
+          <Flex
+            background="surface"
+            border="neutral-medium"
+            radius="m-4"
+            shadow="l"
+            padding="2"
+            horizontal="center"
+          >
+            <Flex gap="2" vertical="center" textVariant="body-default-s">
+              {routes["/"] && (
+                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} aria-label="Home" />
+              )}
+              <Line vert maxHeight="24" />
+              {routes["/about"] && (
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="person"
+                    href="/about"
+                    label={about.label}
+                    selected={pathname === "/about"}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="person"
+                    href="/about"
+                    selected={pathname === "/about"}
+                    aria-label={about.label}
+                  />
+                </>
+              )}
+              {routes["/experience"] && (
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="calendar"
+                    href="/experience"
+                    label="Experience"
+                    selected={pathname.startsWith("/experience")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="calendar"
+                    href="/experience"
+                    selected={pathname.startsWith("/experience")}
+                    aria-label="Experience"
+                  />
+                </>
+              )}
+              {routes["/work"] && (
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="grid"
+                    href="/work"
+                    label={work.label}
+                    selected={pathname.startsWith("/work")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="grid"
+                    href="/work"
+                    selected={pathname.startsWith("/work")}
+                    aria-label={work.label}
+                  />
+                </>
+              )}
+              {routes["/blog"] && (
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="book"
+                    href="/blog"
+                    label={blog.label}
+                    selected={pathname.startsWith("/blog")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="book"
+                    href="/blog"
+                    selected={pathname.startsWith("/blog")}
+                    aria-label={blog.label}
+                  />
+                </>
+              )}
+              {routes["/gallery"] && (
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="gallery"
+                    href="/gallery"
+                    label={gallery.label}
+                    selected={pathname.startsWith("/gallery")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="gallery"
+                    href="/gallery"
+                    selected={pathname.startsWith("/gallery")}
+                    aria-label={gallery.label}
+                  />
+                </>
+              )}
+            </Flex>
+          </Flex>
+        </Flex>
+        <Flex fillWidth horizontal="end" vertical="center">
+          <Flex
+            paddingRight="12"
+            horizontal="end"
+            vertical="center"
+            textVariant="body-default-s"
+            gap="20"
+          >
+          <Flex hide="s">{display.time && <TimeDisplay timeZone={person.timeZone} />}</Flex>
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
   );
 };

@@ -1,75 +1,96 @@
+import { Column, Flex, Heading, SmartLink, Tag, Text } from "@/once-ui/components";
+import { getPosts } from "@/app/utils/utils";
+import { Projects } from "@/components/work/Projects";
+import { baseURL } from "@/app/resources";
+import { person, work } from "@/app/resources/content";
+import { site } from "@/app/resources/portfolio";
 import { pageMetadata } from "@/app/resources/seo";
-import { agentRuntime } from "@/app/resources/portfolio";
-import {
-  AgentRuntimeCard,
-  CaseStudyGrid,
-  ContactBand,
-  ProjectGrid,
-  SectionHeading,
-} from "@/components/portfolio/PortfolioSections";
-import styles from "@/components/portfolio/portfolio.module.scss";
+
+const additionalSystems = [
+  { name: "Transaction Outbox Service", url: "https://github.com/tarunngusain08/transaction-outbox-service" },
+  { name: "Rate Limiter", url: "https://github.com/tarunngusain08/Rate_Limiter" },
+  { name: "Load Balancer", url: "https://github.com/tarunngusain08/Load-Balancer" },
+  { name: "Distributed Cache", url: "https://github.com/tarunngusain08/Distributed-Cache" },
+  { name: "Go + PostgreSQL", url: "https://github.com/tarunngusain08/Go-Postgres" },
+];
 
 export function generateMetadata() {
-  return pageMetadata({
-    title: "Selected work",
-    description: "Sanitized professional case studies and public engineering projects by Tarunn Gusain.",
-    path: "/work",
-  });
+  return pageMetadata({ title: work.title, description: work.description, path: "/work" });
 }
 
 export default function Work() {
-  const archivedBuilds = [
-    { name: "NoteSense", href: "https://github.com/tarunngusain08/NoteSense" },
-    { name: "TypeRacer Elite", href: "https://github.com/tarunngusain08/TypeRacer-Elite" },
-  ];
+  const allProjects = getPosts(["src", "app", "work", "projects"]);
 
   return (
-    <main className={styles.page}>
-      <header className={styles.section}>
-        <p className={styles.eyebrow}>SELECTED WORK · PROFESSIONAL + PUBLIC</p>
-        <h1 className={styles.sectionTitle}>Impact at work. Evidence in code.</h1>
-        <p className={styles.sectionDescription}>
-          Enterprise case studies are summarized at résumé level. Public projects link directly to source
-          and document the engineering decisions behind them.
-        </p>
-      </header>
+    <Column maxWidth="m" fillWidth gap="xl">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            headline: work.title,
+            description: work.description,
+            url: `${site.url}/work`,
+            image: `${site.url}/og?title=${encodeURIComponent(work.title)}`,
+            author: { "@type": "Person", name: person.name },
+            hasPart: allProjects.map((project) => ({
+              "@type": "CreativeWork",
+              headline: project.metadata.title,
+              description: project.metadata.summary,
+              url: `${site.url}/work/${project.slug}`,
+              image: project.metadata.images.map((image) => `${site.url}${image}`),
+            })),
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
 
-      <section className={styles.section} aria-labelledby="impact-heading">
-        <SectionHeading id="impact-heading" eyebrow="PROFESSIONAL IMPACT" title="Production work, explained with care." />
-        <CaseStudyGrid />
-      </section>
+      <Column maxWidth="s" gap="m">
+        <Tag size="s">FEATURED · ARCHIVE</Tag>
+        <Heading as="h1" variant="display-strong-l" wrap="balance">
+          Systems in production, and in code.
+        </Heading>
+        <Text variant="heading-default-m" onBackground="neutral-weak">
+          Current work explores evidence-grounded AI, evaluation and real-time systems. The archive keeps
+          earlier product builds and hands-on model experiments available with their screenshots, technical
+          notes and source links.
+        </Text>
+      </Column>
 
-      <section className={styles.section} aria-labelledby="public-projects-heading">
-        <SectionHeading
-          id="public-projects-heading"
-          eyebrow="PUBLIC ENGINEERING PROJECTS"
-          title="Review the implementation."
-          description="Project benchmark results are labeled as project evidence; they are not customer or production metrics."
-        />
-        <ProjectGrid />
-      </section>
+      <Column fillWidth gap="l">
+        <Column gap="8">
+          <Heading as="h2" variant="display-strong-s">Featured projects</Heading>
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            Current systems work, with benchmark evidence and implementation details.
+          </Text>
+        </Column>
+        <Projects range={[1, 3]} />
+      </Column>
 
-      <section className={styles.section} aria-labelledby="runtime-heading">
-        <SectionHeading
-          id="runtime-heading"
-          eyebrow="ADDITIONAL ENGINEERING WORK"
-          title={agentRuntime.title}
-          description="Résumé-described Go and PostgreSQL work; no public repository or demo is linked."
-        />
-        <AgentRuntimeCard />
-      </section>
+      <Column fillWidth gap="l">
+        <Column gap="8">
+          <Heading as="h2" variant="display-strong-s">Earlier projects and experiments</Heading>
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            Product builds, Android work and model-training experiments remain part of the engineering history.
+          </Text>
+        </Column>
+        <Projects range={[4]} />
+      </Column>
 
-      <details className={`${styles.archiveDetails} ${styles.section}`}>
-        <summary>Earlier product builds</summary>
-        <p>These earlier projects remain available as background. They are lower priority for the backend, platform and forward-deployed roles this portfolio targets.</p>
-        <div className={styles.archiveLinks}>
-          {archivedBuilds.map((build) => (
-            <a key={build.name} href={build.href} target="_blank" rel="noreferrer">{build.name} ↗</a>
+      <Column fillWidth gap="m" paddingTop="m">
+        <Heading as="h2" variant="display-strong-s">More backend and systems work</Heading>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          Additional repositories from the broader Go and distributed-systems portfolio.
+        </Text>
+        <Flex fillWidth wrap gap="m">
+          {additionalSystems.map((project) => (
+            <SmartLink key={project.name} href={project.url} suffixIcon="arrowUpRightFromSquare">
+              <Text variant="body-default-s">{project.name}</Text>
+            </SmartLink>
           ))}
-        </div>
-      </details>
-
-      <ContactBand />
-    </main>
+        </Flex>
+      </Column>
+    </Column>
   );
 }
