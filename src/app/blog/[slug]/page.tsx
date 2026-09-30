@@ -84,7 +84,12 @@ export default function Blog({ params }: BlogParams) {
         </Text>
       </Row>
       <Column as="article" fillWidth>
-        <CustomMDX source={post.content} />
+        <CustomMDX
+          source={post.content}
+          options={post.slug === "new-milestone-in-my-career"
+            ? { blockJS: false, blockDangerousJS: true }
+            : undefined}
+        />
       </Column>
       <ScrollToHash />
     </Column>
