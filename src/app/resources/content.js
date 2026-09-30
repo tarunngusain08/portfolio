@@ -48,9 +48,9 @@ const home = {
 };
 
 const about = {
-  label: "About",
-  title: "About",
-  description: "A Go-first backend and platform engineer working across production AI, distributed systems and customer-facing delivery.",
+  label: "Experience",
+  title: "Experience",
+  description: "Professional experience across Go backend systems, cloud platforms, production AI and forward-deployed engineering.",
   avatar: { display: true },
 };
 

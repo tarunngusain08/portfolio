@@ -26,7 +26,7 @@ const sections = [
 ];
 
 export function generateMetadata() {
-  return pageMetadata({ title: "About", description: about.description, path: "/about" });
+  return pageMetadata({ title: "Experience", description: about.description, path: "/about" });
 }
 
 export default function About() {
@@ -72,7 +72,10 @@ export default function About() {
 
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column id="Introduction" fillWidth minHeight="160" vertical="center" marginBottom="32">
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            <Heading className={styles.textAlign} as="h1" variant="display-strong-s">
+              Experience
+            </Heading>
+            <Heading className={styles.textAlign} as="h2" variant="display-strong-xl">
               {person.name}
             </Heading>
             <Text className={styles.textAlign} variant="display-default-xs" onBackground="neutral-weak">

@@ -2,10 +2,10 @@ const baseURL = "portfolio-ishhyoboytaruns-projects.vercel.app";
 
 const routes = {
   "/": true,
-  "/experience": true,
+  "/experience": false,
   "/about": true,
   "/work": true,
-  "/blog": true,
+  "/blog": false,
   "/gallery": true,
 };
 
