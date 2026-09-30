@@ -98,7 +98,7 @@ export const experience: Experience[] = [
 ];
 
 export const metrics = [
-  { value: "2021–26", label: "professional engineering timeline" },
+  { value: "6.5+", label: "years of experience" },
   { value: "40+", label: "GPU nodes supported" },
   { value: "~10K/s", label: "OCI resource changes ingested" },
   { value: "700+", label: "RAG evaluation questions" },
@@ -202,10 +202,10 @@ export const site = {
   name: "Tarunn Gusain",
   role: "Forward Deployed Engineer · Senior Backend Engineer",
   headline: "Production systems, from discovery through operations.",
-  description: "Go-first engineer building distributed systems, cloud platforms and production AI—from ambiguous requirements to reliable services.",
+  description: "Forward-deployed and senior software engineer with 6.5+ years of experience building distributed systems, cloud platforms and production AI.",
   url: "https://portfolio-ishhyoboytaruns-projects.vercel.app",
   github: "https://github.com/tarunngusain08",
   linkedin: "https://www.linkedin.com/in/tarunngusain08/",
   email: "tarunngusain@gmail.com",
-  resumePath: null, // TODO: add the latest résumé PDF before exposing a download link.
+  resumePath: null, // TODO: publish only an approved public copy with a download link.
 };

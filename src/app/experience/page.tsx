@@ -15,7 +15,7 @@ export default function ExperiencePage() {
   return (
     <main className={styles.page}>
       <header className={styles.section}>
-        <p className={styles.eyebrow}>EXPERIENCE · 2021–2026</p>
+        <p className={styles.eyebrow}>EXPERIENCE · 6.5+ YEARS</p>
         <h1 className={styles.sectionTitle}>Production engineering across the stack.</h1>
         <p className={styles.sectionDescription}>
           Go and backend systems are the through-line—from APIs and concurrency to cloud reliability,

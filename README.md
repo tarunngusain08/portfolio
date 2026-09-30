@@ -30,4 +30,4 @@ There is no separate test script in `package.json`.
 
 ## Résumé follow-up
 
-The latest résumé PDF was not supplied with the portfolio refresh. Add the approved file at `public/resume.pdf`, then remove the TODO next to `resumePath` in `src/app/resources/portfolio.ts` and add the résumé download CTA. Until then, the site uses direct email contact and does not expose a placeholder download.
+The current résumé PDF was provided as a reference but is not published by the site. To offer a download, add an approved public copy at `public/resume.pdf`, remove the TODO next to `resumePath` in `src/app/resources/portfolio.ts`, and add the résumé download CTA.
